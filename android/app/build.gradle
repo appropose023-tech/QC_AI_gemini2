@@ -1,12 +1,50 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in local.properties file.")
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
 android {
+    // THIS LINE IS CRITICAL TO STOP V1 ERRORS
     namespace "pcb_aoi_inspector" 
-    compileSdk flutter.compileSdkVersion
+    compileSdkVersion flutter.compileSdkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 
     defaultConfig {
-        applicationId "pcb_aoi_inspector" // This is the 'Package Name'
+        // MUST MATCH YOUR FOLDER NAME
+        applicationId "pcb_aoi_inspector"
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
