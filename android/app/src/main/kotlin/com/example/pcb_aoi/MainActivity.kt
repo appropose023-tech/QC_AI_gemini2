@@ -1,7 +1,6 @@
-package com.example.pcb_aoi // 1. MUST match the package in your Manifest
+package pcb_aoi_inspector
 
-import io.flutter.embedding.android.FlutterActivity // 2. The "v2" import
+import io.flutter.embedding.android.FlutterActivity
 
 class MainActivity: FlutterActivity() {
-    // 3. Keep this body empty
 }
