@@ -13,7 +13,7 @@ workflows:
           flutter pub get
       - name: Build Android APK
         script: |
-          flutter build apk --release --no-codesign
+          flutter build apk --release 
       - name: Build macOS App
         script: |
           flutter build macos --release --no-codesign
