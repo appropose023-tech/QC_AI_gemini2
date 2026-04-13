@@ -1,9 +1,12 @@
 android {
-    namespace "pcb_aoi"
+    namespace "pcb_aoi_inspector" 
     compileSdk flutter.compileSdkVersion
 
     defaultConfig {
-        applicationId "pcb_aoi"
-        // ... rest of config
+        applicationId "pcb_aoi_inspector" // This is the 'Package Name'
+        minSdkVersion 21
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
     }
 }
