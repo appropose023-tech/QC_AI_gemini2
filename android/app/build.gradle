@@ -1,0 +1,9 @@
+android {
+    namespace "pcb_aoi"
+    compileSdk flutter.compileSdkVersion
+
+    defaultConfig {
+        applicationId "pcb_aoi"
+        // ... rest of config
+    }
+}
