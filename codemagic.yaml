@@ -11,10 +11,12 @@ workflows:
       - name: Fetch Dependencies
         script: |
           flutter pub get
-      - name: Force Clean Build
+      - name: Hard Reset Android
         script: |
-         # This wipes out any hidden 'v1' leftovers
+          # This forces Flutter to recreate the hidden v2 embedding files
           flutter clean
+          rm -rf android/.gradle
+          rm -rf android/app/build
       - name: Build Android APK
         script: |
           flutter build apk --release 
