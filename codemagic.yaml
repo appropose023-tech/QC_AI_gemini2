@@ -11,6 +11,10 @@ workflows:
       - name: Fetch Dependencies
         script: |
           flutter pub get
+      - name: Force Clean Build
+        script: |
+         # This wipes out any hidden 'v1' leftovers
+          flutter clean
       - name: Build Android APK
         script: |
           flutter build apk --release 
