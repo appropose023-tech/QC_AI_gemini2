@@ -18,7 +18,7 @@ class _PCBInspectorAppState extends State<PCBInspectorApp> {
   String _status = "Ready";
   String? _reportUrl;
 
-  final String serverIp = "http://YOUR_EXTERNAL_IP:5000"; // USE YOUR CLOUD IP
+  final String serverIp = "http://http://104.154.76.47:5000"; // USE YOUR CLOUD IP
 
   Future<void> _pickAndUpload() async {
     final picker = ImagePicker();
